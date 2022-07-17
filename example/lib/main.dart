@@ -1,5 +1,3 @@
-import 'package:example/VariantA.dart';
-import 'package:example/VariantB.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ab_tester/flutter_ab_tester.dart';
 
@@ -33,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // Map<String, Widget> x = {"Control": ControlGroup(text: "I'm Control"), "A": A(text: "I'm A")};
+  // map of the variants that need to be shown
   Map<String, Widget> _mapOfTestCases = {"VariantA": VariantA(text: "I'm Variant A"), "VariantB": VariantB(text: "I'm Variant B")};
 
   @override
@@ -41,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       child: ElevatedButton(
         onPressed: (){
+          // here, instead of calling your widget, we call FlutterABTester() which takes care of everything for you
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => FlutterABTester(testName: "first_test", email: "john@gmail.com", password: "johnpassword", mapOfTestCases: _mapOfTestCases,)),
@@ -49,6 +48,76 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Text(
             'Click me to see variant'
         ),
+      ),
+    );
+  }
+}
+
+// Variant A widget
+class VariantA extends StatefulWidget {
+  const VariantA({
+    Key? key,
+    this.text = "defaultA"
+  }) : super(key: key);
+
+  final String text;
+
+  @override
+  State<VariantA> createState() => _VariantAState();
+}
+
+class _VariantAState extends State<VariantA> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(widget.text, style: TextStyle(color: Colors.white),),
+          ElevatedButton(
+            onPressed: (){
+              FlutterABTesterUtility().targetButtonPressed("first_test", "VariantA", "signup", "john@gmail.com", "johnpassword");
+
+              // rest of your code
+            },
+            child: Text("Click for A"),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+// Widget for Variant B
+class VariantB extends StatefulWidget {
+  const VariantB({
+    Key? key,
+    this.text = "defaultB"
+  }) : super(key: key);
+
+  final String text;
+
+  @override
+  State<VariantB> createState() => _VariantBState();
+}
+
+class _VariantBState extends State<VariantB> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(widget.text, style: TextStyle(color: Colors.white),),
+          ElevatedButton(
+            onPressed: (){
+              FlutterABTesterUtility().targetButtonPressed("first_test", "VariantB", "signup", "john@gmail.com", "johnpassword");
+
+              // rest of your code
+            },
+            child: Text("Click for B"),
+          )
+        ],
       ),
     );
   }

@@ -1,3 +1,6 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+Conduct A/B testing in your flutter apps.
+
+## 0.0.2
+Example updated

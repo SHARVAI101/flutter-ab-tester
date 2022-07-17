@@ -1,39 +1,41 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+See exactly what your users want by conducting A/B testing in your flutter app extremely easily. Setup time: 5 minutes.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the following line to your pubspec:
+```
+flutter_ab_tester: 0.0.1^
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Create your account on the analysis dashboard at: https://flutter-ab-tester-dashboard.herokuapp.com/
+
+Create a map of the widgets that you wish to A/B test with.
+The keys need to be unique identifiers for your variants and the values are the widgets.
 
 ```dart
-const like = 'sample';
+Map<String, Widget> _mapOfTestCases = {"VariantA": VariantA(text: "I'm Variant A"), "VariantB": VariantB(text: "I'm Variant B")};
 ```
 
-## Additional information
+These variants will now be randomly displayed to your users.
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Next, inorder to register the target clicks, add the following function call to every button press that you wish to track.
+```
+FlutterABTesterUtility().targetButtonPressed(testname, variant_that_this_button_is_in, button_id, your_email, your_password);
+```
+Example:
+```
+ElevatedButton(
+    onPressed: (){
+      
+      FlutterABTesterUtility().targetButtonPressed("first_test", "VariantA", "signup", "john@gmail.com", "johnpassword");
+    
+      // rest of your code
+    },
+    child: Text("Click for A"),
+)
+```
+
+Now you can check your analysis results at: https://flutter-ab-tester-dashboard.herokuapp.com/dashboard

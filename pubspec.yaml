@@ -1,7 +1,7 @@
 name: flutter_ab_tester
 description: Flutter AB Tester
-version: 0.0.1
-homepage:
+version: 0.0.2
+homepage: https://github.com/SHARVAI101/flutter-ab-tester
 
 environment:
   sdk: ">=2.17.3 <3.0.0"
