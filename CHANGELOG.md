@@ -4,3 +4,6 @@ Conduct A/B testing in your flutter apps.
 
 ## 0.0.2
 Example updated
+
+## 0.0.3
+Readme updated
