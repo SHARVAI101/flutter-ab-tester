@@ -5,7 +5,7 @@ See exactly what your users want by conducting A/B testing in your flutter app e
 
 Add the following line to your pubspec:
 ```
-flutter_ab_tester: ^0.0.1
+flutter_ab_tester: ^0.0.4
 ```
 
 ## Usage
@@ -60,3 +60,7 @@ ElevatedButton(
 ```
 
 Now you can check your analysis results at: https://flutter-ab-tester-dashboard.herokuapp.com/dashboard
+
+Your results will look something like this:
+
+<img src="https://pasteboard.co/WQBSEgfOPfhE.png" />

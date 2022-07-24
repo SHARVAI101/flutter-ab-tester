@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         },
         child: Text(
-            'Click me to see variant'
+            'Click me to see the variant'
         ),
       ),
     );
