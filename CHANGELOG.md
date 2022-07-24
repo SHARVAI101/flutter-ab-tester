@@ -13,3 +13,6 @@ Readme updated
 
 ## 0.0.5
 Readme updated
+
+## 0.0.6
+Readme updated
