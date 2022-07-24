@@ -7,3 +7,6 @@ Example updated
 
 ## 0.0.3
 Readme updated
+
+## 0.0.4
+Readme updated
