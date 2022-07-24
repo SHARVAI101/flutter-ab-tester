@@ -63,4 +63,4 @@ Now you can check your analysis results at: https://flutter-ab-tester-dashboard.
 
 Your results will look something like this:
 
-<img src="https://pasteboard.co/WQBSEgfOPfhE.png" />
+<img src="https://postimg.cc/Whdbwb4j" />
